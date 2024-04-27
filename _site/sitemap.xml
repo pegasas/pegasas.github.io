@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/AxialDeepLab.pdf</loc>
+<lastmod>2022-05-29T17:59:01+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/ICDM_21_camera_ready.pdf</loc>
+<lastmod>2021-11-05T20:18:44+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/ICDM_21_presentation.pdf</loc>
+<lastmod>2022-05-30T20:31:05+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/KDD_21_camera_ready.pdf</loc>
+<lastmod>2022-05-29T14:56:17+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/KDD_21_poster.pdf</loc>
+<lastmod>2021-06-16T11:59:49+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/files/KDD_21_presentation.pdf</loc>
+<lastmod>2022-05-29T14:56:17+08:00</lastmod>
+</url>
+</urlset>
