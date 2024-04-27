@@ -17,11 +17,11 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Qingping Yang / 杨清平"
+title                    : "John Huang"
 title_separator          : "-"
-name                     : "Qingping Yang"
+name                     : "John Huang"
 description              : 
-url                      : https://qingping95.github.io  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://pegasas.github.io  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -107,9 +107,9 @@ analytics:
 
 # Site Author
 author:
-  name             : Qingping Yang
-  avatar           : /qingping2.jpg # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : PhD Candidate in CS at ICT, CAS
+  name             : John Huang
+  avatar           : 
+  bio              : 
   location         :
   email            :
   links:
