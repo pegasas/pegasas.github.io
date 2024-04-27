@@ -5,9 +5,6 @@ title:
 author_profile: true
 ---
 
-# John Huang
----
-
 #### Hi 👋 Coders
 
 <img src="https://visitor-badge.laobi.icu/badge?page_id=pegasas.pegasas" style="max-width:100%;">
