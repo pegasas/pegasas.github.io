@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "GitHub"
+    url: https://github.com/pegasas
   - title: "Notes"
     url: /notes/
   # - title: "Quick-Start Guide"
