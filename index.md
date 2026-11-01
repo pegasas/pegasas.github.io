@@ -78,7 +78,6 @@ Here are some ideas to get you started:
     </div>
     <div class="pg-btns">
       <a class="pg-btn primary" href="mailto:yangqingping17s@ict.ac.cn">Email me</a>
-      <a class="pg-btn ghost" href="https://scholar.google.com.hk/citations?user=g79gAJEAAAAJ&hl=zh-CN&oi=sra">Google Scholar</a>
     </div>
   </div>
 </section>

@@ -121,7 +121,7 @@ author:
       # url: "https://csrhddlam.github.io/CV_HuiyuWang.pdf"
     - label: "Google Scholar"
       icon: "fas fa-graduation-cap"
-      url: "https://scholar.google.com.hk/citations?user=g79gAJEAAAAJ&hl=zh-CN&oi=sra"
+      # url: "https://scholar.google.com.hk/citations?user=g79gAJEAAAAJ&hl=zh-CN&oi=sra"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
