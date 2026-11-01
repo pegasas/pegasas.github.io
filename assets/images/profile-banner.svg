@@ -24,13 +24,8 @@
     <rect y="298" width="1200" height="2" fill="url(#line)"/>
 
     <g transform="translate(72 66)">
-      <g transform="scale(1.6)">
-        <path d="M16 2 L28.1 9 L16 16 L3.9 9 Z" fill="#7bd43c"/>
-        <path d="M3.9 9 L16 16 L16 30 L3.9 23 Z" fill="#3d9bff"/>
-        <path d="M16 16 L28.1 9 L28.1 23 L16 30 Z" fill="#ff7a1f"/>
-        <path d="M16 2 L28.1 9 L28.1 23 L16 30 L3.9 23 L3.9 9 Z M3.9 9 L16 16 L28.1 9 M16 16 V30" fill="none" stroke="#07080b" stroke-width="1.4" stroke-linejoin="round"/>
-      </g>
-      <text x="66" y="34" class="f" font-size="26" font-weight="800" fill="#fff" letter-spacing=".5">John Huang</text>
+      <g transform="translate(2 2) scale(1.15)"><path d="M16 2L28.1 9L28.1 23L16 30L3.9 23L3.9 9Z M3.9 9L16 16L28.1 9M16 16V30" fill="none" stroke="#e9edf4" stroke-opacity=".8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M16 2L28.1 9" fill="none" stroke="#7bd43c" stroke-width="2.4" stroke-linecap="round"/></g>
+      <text x="52" y="30" class="f" font-size="26" font-weight="800" fill="#fff" letter-spacing=".5">John Huang</text>
     </g>
 
     <text x="72" y="182" class="f" font-size="52" font-weight="900" fill="#fff" letter-spacing="-1">Notes on <tspan fill="url(#t)">systems, data</tspan> &amp; AI infra.</text>
