@@ -4,4 +4,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
+{% if page.math %}
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+{% endif %}
+{% if page.mermaid %}
+<script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs";document.querySelectorAll("pre > code.language-mermaid, .language-mermaid pre code").forEach(function(c){var d=document.createElement("div");d.className="mermaid";d.textContent=c.textContent;(c.closest("div.language-mermaid")||c.parentNode).replaceWith(d);});mermaid.initialize({startOnLoad:true});</script>
+{% endif %}
 <!-- end custom head snippets -->
