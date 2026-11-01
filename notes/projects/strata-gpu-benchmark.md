@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Strata 推理引擎：GPU 基准与 kernel 级剖析"
-permalink: /notes/projects/strata-h100-benchmark/
+permalink: /notes/projects/strata-gpu-benchmark/
 author_profile: false
 breadcrumbs: true
 toc: true
