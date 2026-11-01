@@ -15,7 +15,7 @@ private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/project
 
 | 项目 | 三组共同配置 |
 |---|---|
-| 计算资源与并行方式 | 1 张 L40S；三组顺序执行，每组单卡训练 |
+| 计算资源与并行方式 | 1 张 GPU；三组顺序执行，每组单卡训练 |
 | 模型与任务 | Qwen2.5-1.5B-Instruct；GSM8K completion-only SFT |
 | 固定训练量 | 每组 160 个样本、20 步、34566 个非 padding token、20178 个监督目标 token |
 | 批量 | microbatch=2，梯度累积=4，有效 batch=8；无 gradient checkpointing |

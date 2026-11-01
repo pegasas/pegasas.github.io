@@ -89,7 +89,7 @@
           items:
             - {title: "Strata GPU 基准", url: "/notes/projects/strata-gpu-benchmark/", desc: "量化、上下文、并发与内核对照", result: "单路 decode 最高 181.2 tok/s"}
             - {title: "vLLM 突发流量调优", url: "/notes/projects/vllm-burst-serving/", desc: "3600 次请求的排队与延迟对照", result: "TTFT p95：1234 → 366 ms"}
-            - {title: "四张 T4 异步调度排障", url: "/notes/projects/t4-vllm-async-scheduler/", desc: "从调度自旋定位到 GPU 前后验证", result: "单次请求：318.27 → 6.69 秒"}
+            - {title: "四卡 vLLM 异步调度排障", url: "/notes/projects/vllm-async-scheduler/", desc: "从调度自旋定位到 GPU 前后验证", result: "单次请求：318.27 → 6.69 秒"}
         - name: 算子与数值
           items:
             - {title: "Qwen3 FP8 整模型验证", url: "/notes/projects/qwen3-fp8-model-gate/", desc: "局部矩阵乘更快，整模型反而变慢", result: "完整模型 decode 慢约 21%"}
@@ -99,7 +99,7 @@
             - {title: "Qwen3 偏好微调与评分复核", url: "/notes/projects/qwen3-dpo-evaluation/", desc: "训练、动态 LoRA 服务和评分边界", result: "评分口径复核：44/48 → 41/48"}
         - name: 多模态
           items:
-            - {title: "单张 L4 跑 Cosmos", url: "/notes/projects/cosmos-l4-inference/", desc: "实际图像、视频与分辨率边界", result: "768 档位、25 帧视频完成"}
+            - {title: "单卡 Cosmos 推理", url: "/notes/projects/cosmos-inference/", desc: "实际图像、视频与分辨率边界", result: "768 档位、25 帧视频完成"}
 
 - section: 计算机基础
   eyebrow: "B · Foundations"

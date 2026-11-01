@@ -9,13 +9,13 @@ excerpt: "完成 QLoRA-DPO 和动态 LoRA 服务后，逐 token 复核偏好分�
 private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/projects/qwen3-dpo-evaluation.md
 ---
 
-在单张 L4 上，我完成 Qwen3-8B 的 QLoRA-DPO，保存 adapter，并接入 vLLM 动态 LoRA 服务。随后扩充偏好评测，保存逐 token 分数，重新检查评分范围。
+我使用 1 张 GPU 完成 Qwen3-8B 的 QLoRA-DPO，保存 adapter，并接入 vLLM 动态 LoRA 服务。随后扩充偏好评测，保存逐 token 分数，重新检查评分范围。
 
 ## 训练参数与资源
 
 | 项目 | 实际配置或记录 |
 |---|---|
-| GPU | 1 张 L4；训练、评测与服务实验分阶段执行 |
+| GPU | 1 张 GPU；训练、评测与服务实验分阶段执行 |
 | 训练与服务基座 | Qwen3-8B 4-bit 训练基座；Qwen3-8B-AWQ 服务基座 |
 | 数据 | 36 对训练样本；初始 12 对留出，扩展后共 48 对评测 |
 | LoRA | rank=16，alpha=16，dropout=0；attention 与 MLP 投影 |

@@ -1,12 +1,12 @@
 ---
 layout: project-summary
 classes: wide
-title: "四张 T4 跑 vLLM：一次异步调度自旋的排查与修复"
-permalink: /notes/projects/t4-vllm-async-scheduler/
+title: "四卡 vLLM：一次异步调度自旋的排查与修复"
+permalink: /notes/projects/vllm-async-scheduler/
 author_profile: false
 toc: false
 excerpt: "从 GPU 闲等和主线程忙碌查到异步调度自旋，完成最小复现、补丁与真实 GPU 前后验证。"
-private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/projects/t4-vllm-async-scheduler.md
+private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/projects/vllm-async-scheduler.md
 ---
 
 四张 GPU 执行一个短输出请求时，设备大量闲等，主线程却持续忙碌。我从容量诊断转向异步调度源码，构造最小复现，再用相同参数和负载验证显式启用的修复。前后 greedy 输出 token 完全一致。

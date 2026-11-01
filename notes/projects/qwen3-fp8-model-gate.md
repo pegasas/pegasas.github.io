@@ -15,7 +15,7 @@ private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/project
 
 | 项目 | 本次实测配置与用量 |
 |---|---|
-| 执行并行方式 | 1 张 L40S、单进程、batch=1；两种精度交错串行执行，没有服务端并发请求 |
+| 执行并行方式 | 1 张 GPU、单进程、batch=1；两种精度交错串行执行，没有服务端并发请求 |
 | 模型与框架 | Qwen3-0.6B；PyTorch 2.6.0、CUDA 12.6；SDPA attention |
 | 精度对照 | BF16 对照；28 个 MLP gate projection 使用 tensorwise E4M3，激活在线缩放和转换 |
 | 输入与输出 | 输入 128 / 512 / 2048 token；每例固定 16 步缓存 decode，单 token 解码行数补齐到 16 |

@@ -1,21 +1,21 @@
 ---
 layout: project-summary
 classes: wide
-title: "单张 L4 跑 Cosmos：从基础样例到视频分辨率边界"
-permalink: /notes/projects/cosmos-l4-inference/
+title: "单卡 Cosmos 推理：从基础样例到视频分辨率边界"
+permalink: /notes/projects/cosmos-inference/
 author_profile: false
 toc: false
 excerpt: "从图像和视频实际输出出发，逐档验证单卡可运行边界，并保留显存采样和模型加载排障记录。"
-private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/projects/cosmos-l4-inference.md
+private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/projects/cosmos-inference.md
 ---
 
-在单张 L4 上，我逐项运行 Cosmos 3 Edge 的文生图、图片理解和文生视频，再提高输出档位；每项同时检查退出状态与实际产物。
+我使用 1 张 GPU，逐项运行 Cosmos 3 Edge 的文生图、图片理解和文生视频，再提高输出档位；每项同时检查退出状态与实际产物。
 
 ## 配置与资源
 
 | 项目 | 本轮记录 |
 |---|---|
-| GPU 与推理并发 | 1 张 L4；单次 1 条样例输入，推理并发 1，串行执行 |
+| GPU 与推理并发 | 1 张 GPU；单次 1 条样例输入，推理并发 1，串行执行 |
 | 模型与执行方式 | Cosmos 3 Edge；latency 并行预设 |
 | 固定参数 | seed=0；生成样例宽高比 16:9 |
 | 分辨率档位 | 256、480、720、768 |
@@ -32,7 +32,7 @@ private_url: https://github.com/pegasas/pegasas-notes-v2/blob/main/notes/project
 | 分辨率轮 | 480 档位图片（832×480）及 17 帧视频；720 档位图片（1280×720）及 25 帧视频 | 22368 |
 | 扩展轮 | 480 档位 25 帧视频；768 档位图片（1360×768）及 25 帧视频 | 22562 |
 
-表中分辨率是框架档位，括号内尺寸为实际生成图片尺寸。17 帧案例触发低于推荐帧数的提示，只计为该配置完成。扩展轮距设备容量约剩 472 MiB；采样可能漏掉瞬时峰值，不能据此承诺更长视频或并发容量。
+表中分辨率是框架档位，括号内尺寸为实际生成图片尺寸。17 帧案例触发低于推荐帧数的提示，只计为该配置完成。显存采样可能漏掉瞬时峰值，不能据此承诺更长视频或并发容量。
 
 这些结果来自未加载防护组件的隔离功能样例。另一条 Policy 模型路径停在基础权重加载，未计入推理成功数，也没有性能数据。
 
