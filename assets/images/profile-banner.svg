@@ -23,9 +23,13 @@
     <rect width="1200" height="300" fill="url(#grid)" mask="url(#m)"/>
     <rect y="298" width="1200" height="2" fill="url(#line)"/>
 
-    <g transform="translate(72 70)">
-      <rect width="22" height="22" rx="4" fill="#ff7a1f"/><rect x="26" width="22" height="22" rx="4" fill="#7bd43c"/>
-      <rect y="26" width="22" height="22" rx="4" fill="#3d9bff"/><rect x="26" y="26" width="22" height="22" rx="4" fill="#9a6bff"/>
+    <g transform="translate(72 66)">
+      <g transform="scale(1.6)">
+        <path d="M16 2 L28.1 9 L16 16 L3.9 9 Z" fill="#7bd43c"/>
+        <path d="M3.9 9 L16 16 L16 30 L3.9 23 Z" fill="#3d9bff"/>
+        <path d="M16 16 L28.1 9 L28.1 23 L16 30 Z" fill="#ff7a1f"/>
+        <path d="M16 2 L28.1 9 L28.1 23 L16 30 L3.9 23 L3.9 9 Z M3.9 9 L16 16 L28.1 9 M16 16 V30" fill="none" stroke="#07080b" stroke-width="1.4" stroke-linejoin="round"/>
+      </g>
       <text x="66" y="34" class="f" font-size="26" font-weight="800" fill="#fff" letter-spacing=".5">John Huang</text>
     </g>
 
