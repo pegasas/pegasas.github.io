@@ -24,7 +24,7 @@ Here are some ideas to get you started:
   <div class="pg-wrap">
     <div>
       <span class="pg-eyebrow">Hi 👋 Coders</span>
-      <h1>Notes on <em>Agentic AI,</em> AI Infra &amp; Physical AI.</h1>
+      <h1><span>From <em>Systems</em></span> <span>to <em>Algorithms</em></span> <span>to <em>AI</em></span></h1>
       <p class="pg-lead">I’m John Huang. 目前专注于 Agentic AI、AI Infra 与 Physical AI，并以分布式系统、数据库与云原生为底座，把实践与学习沉淀为一份结构化的技术知识库。</p>
       <div class="pg-btns">
         <a class="pg-btn primary" href="{{ '/notes/' | relative_url }}">浏览 Notes &rarr;</a>
