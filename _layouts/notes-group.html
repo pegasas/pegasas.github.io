@@ -12,7 +12,7 @@ layout: default
 <section class="pg-section pg-topic">
   <div class="pg-wrap">
     <nav class="pg-crumbs"><a href="{{ '/' | relative_url }}">Home</a><span>/</span><a href="{{ '/notes/' | relative_url }}">Notes</a><span>/</span><a href="{{ '/notes/' | relative_url }}#notes">{{ sec.section }}</a><span>/</span><b>{{ g.title }}</b></nav>
-    <div class="pg-head"><span class="pg-eyebrow">{{ sec.eyebrow }}</span><h2>{{ g.icon }} {{ g.title }}</h2><p>{{ g.desc }}</p></div>
+    <div class="pg-head"><span class="pg-eyebrow">{{ sec.eyebrow }}</span><h2><span class="pg-ico">{% include pg-icon.html name=g.slug %}</span>{{ g.title }}</h2><p>{{ g.desc }}</p></div>
     <div class="pg-subnav">{% for sub in g.subs %}<a href="#s{{ forloop.index }}">{{ sub.name }}<em>{{ sub.items.size }}</em></a>{% endfor %}</div>
     {% for sub in g.subs %}
     <div class="pg-sub" id="s{{ forloop.index }}">
@@ -29,8 +29,8 @@ layout: default
     </div>
     {% endfor %}
     <div class="pg-pager">
-      {% if idx > 0 %}{% assign pg = all[prev_i] %}<a href="{{ '/notes/topics/' | append: pg.slug | append: '/' | relative_url }}"><small>&larr; 上一组</small><b>{{ pg.icon }} {{ pg.title }}</b></a>{% else %}<span></span>{% endif %}
-      {% if next_i < all.size %}{% assign ng = all[next_i] %}<a class="next" href="{{ '/notes/topics/' | append: ng.slug | append: '/' | relative_url }}"><small>下一组 &rarr;</small><b>{{ ng.icon }} {{ ng.title }}</b></a>{% endif %}
+      {% if idx > 0 %}{% assign pg = all[prev_i] %}<a href="{{ '/notes/topics/' | append: pg.slug | append: '/' | relative_url }}"><small>&larr; 上一组</small><b>{{ pg.title }}</b></a>{% else %}<span></span>{% endif %}
+      {% if next_i < all.size %}{% assign ng = all[next_i] %}<a class="next" href="{{ '/notes/topics/' | append: ng.slug | append: '/' | relative_url }}"><small>下一组 &rarr;</small><b>{{ ng.title }}</b></a>{% endif %}
     </div>
   </div>
 </section>

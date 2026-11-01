@@ -67,17 +67,34 @@ $(document).ready(function() {
 
   // Bind popstate event listener to support back/forward buttons.
   var smoothScrolling = false;
+  function hashTarget(hash) {
+    try {
+      return document.getElementById(decodeURIComponent((hash || "").slice(1)));
+    } catch (error) {
+      return null;
+    }
+  }
+  function anchorOffset(target) {
+    var offset = ($(".masthead").outerHeight() || 0) + 24;
+    if ($(target).closest(".pg-sub").length) {
+      offset += $(".pg-subnav").outerHeight() || 0;
+    }
+    return offset;
+  }
   $(window).bind("popstate", function (event) {
+    var target = hashTarget(location.hash);
+    if (!target) return;
     $.smoothScroll({
-      scrollTarget: decodeURI(location.hash),
-      offset: -20,
+      scrollTarget: target,
+      offset: -anchorOffset(target),
+      speed: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 400,
       beforeScroll: function() { smoothScrolling = true; },
       afterScroll: function() { smoothScrolling = false; }
     });
   });
   // Override clicking on links to smooth scroll
   $('a[href*="#"]').bind("click", function (event) {
-    if (this.pathname === location.pathname && this.hash) {
+    if (this.hostname === location.hostname && this.pathname === location.pathname && hashTarget(this.hash)) {
       event.preventDefault();
       history.pushState(null, null, this.hash);
       $(window).trigger("popstate");
@@ -92,13 +109,15 @@ $(document).ready(function() {
   $(window).scroll(jQuery.throttle(250, function() {
     // Don't run while smooth scrolling (from clicking on a link).
     if (smoothScrolling) return;
-    var scrollTop = $(window).scrollTop() + 20 + 1;  // 20 = offset
+    var scrollTop = $(window).scrollTop() + anchorOffset() + 1;
     var links = [];
     $("nav.toc a").each(function() {
       var link = $(this);
       var href = link.attr("href");
       if (href && href[0] == "#") {
-        var element = $(href);
+        var target = hashTarget(href);
+        if (!target) return;
+        var element = $(target);
         links.push({
           link: link,
           href: href,
@@ -107,6 +126,7 @@ $(document).ready(function() {
         link.removeClass('active');
       }
     });
+    if (!links.length) return;
     for (var i = 0; i < links.length; i++) {
       var top = links[i].top;
       var bottom = (i < links.length - 1 ? links[i+1].top : Infinity);

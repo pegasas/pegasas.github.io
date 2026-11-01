@@ -7,7 +7,7 @@
     {% capture gurl %}/notes/topics/{{ g.slug }}/{% endcapture %}
     {% assign n = 0 %}{% for sub in g.subs %}{% assign n = n | plus: sub.items.size %}{% endfor %}
     <div class="pg-card pg-group">
-      <a class="pg-group-main" href="{{ gurl | relative_url }}"><span class="pg-ico">{{ g.icon }}</span><b>{{ g.title }}</b><span>{{ g.desc }}</span></a>
+      <a class="pg-group-main" href="{{ gurl | relative_url }}"><span class="pg-ico">{% include pg-icon.html name=g.slug %}</span><b>{{ g.title }}</b><span>{{ g.desc }}</span></a>
       <div class="pg-subs">{% for sub in g.subs %}<a href="{{ gurl | relative_url }}#s{{ forloop.index }}">{{ sub.name }}</a>{% endfor %}</div>
       <a class="pg-group-more" href="{{ gurl | relative_url }}">{{ g.subs.size }} 个子类 · {{ n }} 个条目 &rarr;</a>
     </div>
