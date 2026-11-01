@@ -226,8 +226,7 @@ class Sync:
         self.outputs[key] = (
             "---\nlayout: single\nclasses: wide\ntitle: \"Notes\"\npermalink: /notes/\n"
             "author_profile: false\n---\n\n"
-            "技术知识库（镜像自 [pegasas-notes-v2](https://github.com/pegasas/pegasas-notes-v2)，"
-            "由 `scripts/sync_notes.py` 自动同步，请勿在此直接编辑）。\n\n" + items + "\n"
+            "技术知识库，按知识域组织。\n\n" + items + "\n"
         ).encode()
 
     # ---- apply ----------------------------------------------------------

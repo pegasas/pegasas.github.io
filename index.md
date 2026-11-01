@@ -57,7 +57,7 @@ Here are some ideas to get you started:
 
 <section class="pg-section soft">
   <div class="pg-wrap">
-    <div class="pg-head"><span class="pg-eyebrow">Notes</span><h2>技术知识库</h2><p>按知识域组织，同步自 <a href="https://github.com/pegasas/pegasas-notes-v2">pegasas-notes-v2</a>。从任意领域入口开始，沿基础与机制读到项目实现。</p></div>
+    <div class="pg-head"><span class="pg-eyebrow">Notes</span><h2>技术知识库</h2><p>按知识域组织。从任意领域入口开始，沿基础与机制读到项目实现。</p></div>
     <div class="pg-grid">
 {% for d in site.data.notes_domains %}
 {% capture site_url %}/notes/{{ d.path }}/{% endcapture %}
