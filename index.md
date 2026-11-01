@@ -30,10 +30,10 @@ Here are some ideas to get you started:
         <a class="pg-btn primary" href="{{ '/notes/' | relative_url }}">浏览 Notes &rarr;</a>
         <a class="pg-btn ghost" href="https://github.com/pegasas">GitHub 主页</a>
       </div>
-      <div class="pg-stats">
-        <div><b>16</b><span>知识域</span></div>
-        <div><b>5</b><span>语言：C/C++ · Java · Go · Python · Rust</span></div>
-        <div><b>Open</b><span>持续更新，源码在 GitHub</span></div>
+      <div class="pg-links">
+        <a href="{{ '/notes/projects/strata-h100-benchmark/' | relative_url }}"><small>Latest · 项目笔记</small><b>Strata on H100 NVL：基准与优化方向</b><span>decode / prefill / 并发实测，以及 8 个按优先级排序的改进点 &rarr;</span></a>
+        <a href="{{ '/notes/algorithm/docs/01-basic/01-amortized-analysis/' | relative_url }}"><small>Algorithm · 基础</small><b>Amortized Analysis</b><span>聚合、核算与势能三种摊还分析方法 &rarr;</span></a>
+        <a href="{{ '/notes/' | relative_url }}"><small>Index · 全部笔记</small><b>按知识域浏览</b><span>16 个知识域，从基础机制读到项目实现 &rarr;</span></a>
       </div>
     </div>
     <div class="pg-visual" aria-hidden="true">
@@ -87,8 +87,8 @@ Here are some ideas to get you started:
   <div class="pg-wrap">
     <div class="pg-head"><span class="pg-eyebrow">Activity</span><h2>GitHub Analytics</h2></div>
     <div class="pg-analytics">
-      <img height="180em" width="48%" src="https://github-readme-stats.vercel.app/api/?username=pegasas&bg_color=30,000000,000000&title_color=6762A9&text_color=6c14a6&show_icons=true&include_all_commits=true&count_private=true"/>
-      <img height="180em" width="48%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=pegasas&layout=compact&langs_count=8&bg_color=30,000000,000000&title_color=6762A9&text_color=6762A9&show_icons=true&count_private=true"/>
+      <img width="48%" src="{{ '/assets/images/profile/github-stats.svg' | relative_url }}" alt="GitHub stats"/>
+      <img width="48%" src="{{ '/assets/images/profile/top-langs.svg' | relative_url }}" alt="Most used languages"/>
     </div>
     <img class="pg-badge" src="https://visitor-badge.laobi.icu/badge?page_id=pegasas.pegasas" alt="visitors">
   </div>

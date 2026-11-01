@@ -155,11 +155,15 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 .pg .pg-btn.primary, .pg .pg-btn.primary:visited { color: #071006; }
 .pg .pg-btn.ghost, .pg .pg-btn.ghost:visited { color: #fff; }
 
-.pg-stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 40px; margin-top: 2.8em; padding-top: 1.6em; border-top: 1px solid $pg-line;
-  b { display: block; font-size: 2rem; font-weight: 900; letter-spacing: -.02em; line-height: 1.1; }
-  div:nth-child(1) b { color: $pg-green; } div:nth-child(2) b { color: $pg-orange; } div:nth-child(3) b { color: $pg-blue; }
-  span { font-size: .82rem; color: $pg-muted; }
+.pg-links { display: grid; gap: 12px; margin-top: 2.6em; padding-top: 1.6em; border-top: 1px solid $pg-line;
+  a { display: block; padding: 14px 18px; border-radius: 14px; background: $pg-panel; border: 1px solid $pg-line; color: $pg-text; transition: border-color .2s, transform .2s, background .2s;
+    &:hover { transform: translateY(-2px); background: $pg-panel-hi; border-color: rgba(123, 212, 60, .5); color: $pg-text; } }
+  small { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: $pg-green; }
+  a:nth-child(2) small { color: $pg-orange; } a:nth-child(3) small { color: $pg-blue; }
+  b { display: block; color: #fff; font-size: 1rem; margin: .2em 0; }
+  span { font-size: .84rem; color: $pg-muted; line-height: 1.55; }
 }
+.pg .pg-links a, .pg .pg-links a:visited { color: $pg-text; }
 
 /* hero visual: acrylic glass stack */
 .pg-visual { position: relative; height: 400px;
@@ -246,7 +250,6 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 @media (max-width: 900px) {
   .pg-hero { padding: 64px 0 56px; .pg-wrap { grid-template-columns: 1fr; gap: 44px; } }
   .pg-visual { height: 340px; }
-  .pg-stats { gap: 24px; }
   .pg-contact .pg-wrap { grid-template-columns: 1fr; padding: 36px 24px; }
   .pg-contact .pg-btns { justify-content: flex-start; }
   .pg-section { padding: 64px 0; }
