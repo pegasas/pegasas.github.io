@@ -9,7 +9,7 @@ toc: true
 toc_sticky: true
 ---
 
-> 2026-11-01 · 目标：[niko1221/strata](https://github.com/niko1221/strata) 发布版引擎 0.1.55（源码 checkout `c62d5e3a`），模型 Qwen3.8-Flash-Next。
+> 目标：[niko1221/strata](https://github.com/niko1221/strata) 发布版引擎 0.1.55（源码 checkout `c62d5e3a`），模型 Qwen3.8-Flash-Next。
 > 硬件：1× NVIDIA H100 NVL 94 GB，40 vCPU，314 GB RAM，驱动 580.126.20。由自动化脚本采集，**未修改任何引擎代码**。
 
 ## 结论速览
@@ -48,7 +48,7 @@ toc_sticky: true
 
 三种量化的聚合输出吞吐分别在 201–207（IQ3_XXS）、211–219（Q2_0）、208–210（IQ3_S）tok/s。
 
-### 实验：`--parallel 8`（同模型、同机器、同一天）
+### 实验：`--parallel 8`（同模型、同机器）
 
 | 客户端 | slots | p95 TTFT | p95 延迟 | 输出 tok/s |
 |---|---|---|---|---|
@@ -57,7 +57,7 @@ toc_sticky: true
 | 4 | 4（默认） | 0.34–0.72 s | 1.62–2.05 s | 124.8, 157.6 |
 | 4 | 8 | 0.31–0.71 s | 1.61–2.05 s | 124.9–159.2（6 次） |
 
-8 slots 把 8 客户端下的 p95 TTFT 降低约 2.5×，吞吐提升 5–15%；4 客户端无变化。这是单机同日 A/B，**不代表其他硬件上的默认行为**。
+8 slots 把 8 客户端下的 p95 TTFT 降低约 2.5×，吞吐提升 5–15%；4 客户端无变化。这是单机 A/B，**不代表其他硬件上的默认行为**。
 
 ### GPU 遥测（IQ3_XXS，500 ms 采样）
 
