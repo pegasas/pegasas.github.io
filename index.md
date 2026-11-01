@@ -44,7 +44,6 @@ Here are some ideas to get you started:
   <div class="pg-wrap">
     <div class="pg-links">
       <a href="{{ '/notes/projects/strata-gpu-benchmark/' | relative_url }}"><small>Latest · 项目笔记</small><b>Strata 推理引擎：GPU 基准与 kernel 级剖析</b><span>decode / prefill / 并发实测，以及 8 个按优先级排序的改进点</span>{% include pg-icon.html name="arrow" %}</a>
-      <a href="{{ '/notes/projects/strata-build-roadmap/' | relative_url }}"><small>Roadmap · 项目笔记</small><b>参考 Strata 构建自己的本地推理产品</b><span>设计要点、趋势榜信号与 5 个可选方向</span>{% include pg-icon.html name="arrow" %}</a>
     </div>
   </div>
 </section>
