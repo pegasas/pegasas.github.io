@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title: "Strata on H100 NVL：基准测试与优化方向"
+title: "Strata 推理引擎：GPU 基准与 kernel 级剖析"
 permalink: /notes/projects/strata-h100-benchmark/
 author_profile: false
 breadcrumbs: true
@@ -10,7 +10,7 @@ toc_sticky: true
 ---
 
 > 目标：[niko1221/strata](https://github.com/niko1221/strata) 发布版引擎 0.1.55（源码 checkout `c62d5e3a`），模型 Qwen3.8-Flash-Next。
-> 硬件：1× NVIDIA H100 NVL 94 GB，40 vCPU，314 GB RAM，驱动 580.126.20。由自动化脚本采集，**未修改任何引擎代码**。
+> 硬件：1× NVIDIA GPU（94 GB 显存，约 835 TFLOPS BF16 dense），40 vCPU，314 GB RAM，驱动 580.126.20。由自动化脚本采集，**未修改任何引擎代码**。
 
 ## 结论速览
 
@@ -68,21 +68,21 @@ toc_sticky: true
 | 功耗 W | 173.8 | 244.0 | 361 |
 | SM 时钟 MHz | 1570.5 | 1784.1 | 1785 |
 
-## 改进方向（按优先级）
+## Kernel 级剖析（Nsight Systems）
 
-1. **A. Decode 批处理效率（最大，成因未证实）**：4 路只有单路 1.2×，显存控制器仅 15% 忙，更像 launch / 同步 / 延迟受限或串行化路径，而非带宽受限。待 Nsight 验证三个假设：每 token host/device 同步；小粒度 per-expert GEMV kernel 不随 batch 扩展；verify 窗口固定 6 token。
-2. **B. IQ3 反量化成本**：Q2_0 比 IQ3_XXS 在 16K decode 快 25%、prefill 快 26%，超过约 20% 的体积优势，而显存流量很低，提示限制因素是 IQ3 查表反量化而非访存。
-3. **C. Prefill 远低于 H100 能力**：对激活参数很小的模型只有 5–7K tok/s。可测更大 chunk、专用 prefill expert 布局，以及 16K–32K 是否受 expert-cache gather 限制。
-4. **D. 长上下文 decode 衰减（16K −21%）**：16K 时 KV 全部驻留（`--kv-resident 32768`，int8），不是流式换入问题，应是 attention / KV 读取成本。
-5. **E. 默认容量（已测，易改）**：显存充裕时提高默认 `--parallel`——引擎启动时已知有 85 GB 空闲。本卡上 8 slots 对 8 客户端更好、对 4 客户端持平。
-6. **F. 宿主机告警**：`vm.nr_hugepages=0`；THP 开启但 expert arena 没请求 `MADV_HUGEPAGE`。本场景 expert 全在显存，影响小；部分卸载场景可能有影响（未测）。
-7. **G. 可靠性与可观测性**：quick bench 有 1 个 agent 请求无 token 返回；overload 套件缺 `max_queue` 时报错信息不够直接。
-8. **H. 基准工具**：`tools/strata_bench.py` 明确不是标准协议；标准 runner 需要 `launch-<preset>` 配置名，该约定未与 `--save-preset` 一起写明。
+同一块 GPU，引擎 0.1.55，IQ3_XXS，`--parallel 4`，MTP `--spec 4`。每个负载单独一个采集窗口；trace 本身有开销，窗口间对比有意义，绝对 tok/s 约低 20%。
 
-## 下一步测量（本次未做）
+| 窗口 | 负载 | decode tok/s | GPU 忙碌 | kernel 数 / 输出 token | kernel 中位耗时 |
+|---|---|---:|---:|---:|---:|
+| d1 | 单路，短 prompt，512 输出 | 135.4 | 83.3% | 810 | 4.4 µs |
+| d4 | 4 路并发 | 195.3（合计） | 84.4% | 521 | 4.1 µs |
+| c16k | 16K prompt，512 输出 | 122.2 | 84.8% | 880 | 4.6 µs |
+| p16k | 16K 冷 prefill | 5.5K prompt tok/s | 74.1% | — | 18.5 µs |
 
-- 用 Nsight Systems / Compute 对 A–D 做 kernel 级 trace（需要带 CUDA toolkit 的主机）。
-- Q2_0、IQ3_S 跑满 3 次标准协议，给出置信区间。
-- 1K–128K 上下文扫描（decode 与 prefill）。
-- 设置 `max_queue` 后的 overload 套件。
-- 源码构建 `-DCMAKE_CUDA_ARCHITECTURES=90` 与发布版对比。
+- **并发扩展差**：单 token 的 GPU 时间只从 6.15 ms 降到 4.32 ms（4 路）。专家 GEMV 类 kernel 在 4 路时仍保留 60–76% 的单 token 开销，因为各序列选中的专家不同，权重读取无法共享。
+- **host 同步不是主因**：两种窗口 GPU 忙碌都约 83–84%，空洞中位 0.4 µs。
+- **kernel 非常碎**：每 token 约 810 次 launch，四分之三短于 10 µs；部分热点 kernel 只有 11–41 个 block，远少于 SM 数。
+- **Prefill**：16,258 token 用 2.92 s，GPU 空闲 26%；GPU 时间中量化矩阵乘 `mul_mat_q` 占 45.7%，prompt attention 占 11.6%。
+- **长上下文 decode**：16K 时单 token GPU 时间 +13%（6.15 → 6.94 ms）。attention 每 token +29%，且同样 512 个 token 多跑了 7.6% 的 graph step，提示 MTP 接受率在长 prompt 下降低。
+- **未完成**：Nsight Compute 在引擎的 CUDA graph 内回放 kernel 时进程中止，没有 per-kernel 的 SOL / 显存吞吐数据。
+

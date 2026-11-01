@@ -31,7 +31,7 @@ Here are some ideas to get you started:
         <a class="pg-btn ghost" href="https://github.com/pegasas">GitHub 主页</a>
       </div>
       <div class="pg-links">
-        <a href="{{ '/notes/projects/strata-h100-benchmark/' | relative_url }}"><small>Latest · 项目笔记</small><b>Strata on H100 NVL：基准与优化方向</b><span>decode / prefill / 并发实测，以及 8 个按优先级排序的改进点 &rarr;</span></a>
+        <a href="{{ '/notes/projects/strata-gpu-benchmark/' | relative_url }}"><small>Latest · 项目笔记</small><b>Strata 推理引擎：GPU 基准与 kernel 级剖析</b><span>decode / prefill / 并发实测，以及 8 个按优先级排序的改进点 &rarr;</span></a>
         <a href="{{ '/notes/algorithm/docs/01-basic/01-amortized-analysis/' | relative_url }}"><small>Algorithm · 基础</small><b>Amortized Analysis</b><span>聚合、核算与势能三种摊还分析方法 &rarr;</span></a>
         <a href="{{ '/notes/' | relative_url }}"><small>Index · 全部笔记</small><b>按知识域浏览</b><span>AI 与计算机基础两段、14 个分组，多级跳转到每篇笔记 &rarr;</span></a>
       </div>

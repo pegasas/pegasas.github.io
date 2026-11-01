@@ -73,7 +73,7 @@
         - name: 推理与 Serving
           items:
             - {title: "推理 Serving", path: "ai-infra/knowledge/06-inference-serving", desc: "KV Cache、批处理与调度"}
-            - {title: "Strata on H100 NVL", url: "/notes/projects/strata-h100-benchmark/", desc: "本地推理引擎实测"}
+            - {title: "Strata GPU 基准", url: "/notes/projects/strata-gpu-benchmark/", desc: "本地推理引擎实测"}
         - name: 集群与硬件
           items:
             - {title: "网络与存储", path: "ai-infra/knowledge/05-network-storage", desc: "NVLink、IB、RDMA 与存储"}
@@ -87,7 +87,7 @@
       subs:
         - name: 实测
           items:
-            - {title: "Strata on H100 NVL", url: "/notes/projects/strata-h100-benchmark/", desc: "decode / prefill / 并发实测与优化方向"}
+            - {title: "Strata GPU 基准", url: "/notes/projects/strata-gpu-benchmark/", desc: "decode / prefill / 并发实测与优化方向"}
 
 - section: 计算机基础
   eyebrow: "B · Foundations"
