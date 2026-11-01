@@ -83,11 +83,23 @@
     - slug: projects
       icon: "🔬"
       title: 项目笔记
-      desc: 实测与项目复盘
+      desc: 实测结果与项目摘要，完整记录保存在私有笔记
       subs:
-        - name: 实测
+        - name: 推理与服务
           items:
-            - {title: "Strata GPU 基准", url: "/notes/projects/strata-gpu-benchmark/", desc: "decode / prefill / 并发实测与优化方向"}
+            - {title: "Strata GPU 基准", url: "/notes/projects/strata-gpu-benchmark/", desc: "量化、上下文、并发与内核对照"}
+            - {title: "vLLM 突发流量调优", url: "/notes/projects/vllm-burst-serving/", desc: "3600 次请求的排队与延迟对照"}
+            - {title: "四张 T4 异步调度排障", url: "/notes/projects/t4-vllm-async-scheduler/", desc: "从调度自旋定位到 GPU 前后验证"}
+        - name: 算子与数值
+          items:
+            - {title: "Qwen3 FP8 整模型验证", url: "/notes/projects/qwen3-fp8-model-gate/", desc: "局部矩阵乘更快，整模型反而变慢"}
+        - name: 训练与评测
+          items:
+            - {title: "LoRA、QLoRA 与全量微调", url: "/notes/projects/lora-qlora-full-finetuning/", desc: "显存、训练、checkpoint 与恢复成本"}
+            - {title: "Qwen3 偏好微调与评分复核", url: "/notes/projects/qwen3-dpo-evaluation/", desc: "训练、动态 LoRA 服务和评分边界"}
+        - name: 多模态
+          items:
+            - {title: "单张 L4 跑 Cosmos", url: "/notes/projects/cosmos-l4-inference/", desc: "实际图像、视频与分辨率边界"}
 
 - section: 计算机基础
   eyebrow: "B · Foundations"
