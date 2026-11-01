@@ -25,10 +25,10 @@ Here are some ideas to get you started:
     <div>
       <span class="pg-eyebrow">Hi 👋 Coders</span>
       <h1>Notes on <em>systems, data</em> &amp; AI infra.</h1>
-      <p class="pg-lead">I’m John Huang. 目前在做广告领域，持续学习 LLM、分布式系统、数据库与云原生，并把学到的东西整理成一份结构化的技术知识库。</p>
+      <p class="pg-lead">I’m John Huang. 专注 LLM、AI Infra、Agentic AI 与 Physical AI，持续学习分布式系统、数据库与云原生，并把学到的东西整理成一份结构化的技术知识库。</p>
       <div class="pg-btns">
         <a class="pg-btn primary" href="{{ '/notes/' | relative_url }}">浏览 Notes &rarr;</a>
-        <a class="pg-btn ghost" href="https://github.com/pegasas/pegasas-notes-v2">GitHub 仓库</a>
+        <a class="pg-btn ghost" href="https://github.com/pegasas">GitHub 主页</a>
       </div>
       <div class="pg-stats">
         <div><b>16</b><span>知识域</span></div>
@@ -44,18 +44,18 @@ Here are some ideas to get you started:
   </div>
 </section>
 
-<section class="pg-section">
+<section class="pg-section" id="about">
   <div class="pg-wrap">
     <div class="pg-head"><span class="pg-eyebrow">About</span><h2>我在做什么</h2></div>
     <div class="pg-feat">
-      <div><span class="pg-ico">🔭</span><h3>Working on</h3><p>I’m currently working on <b>ads domain</b>.</p></div>
-      <div><span class="pg-ico">🌱</span><h3>Learning</h3><p>I’m currently learning <b>LLM, distributed system, db, cloud native</b>, etc.</p></div>
+      <div><span class="pg-ico">🔭</span><h3>Working on</h3><p>I’m currently working on <b>LLM / AI Infra / Agentic AI / Physical AI / AI Factory</b>.</p></div>
+      <div><span class="pg-ico">🌱</span><h3>Learning</h3><p>I’m currently learning <b>LLM, AI Infra, distributed system, db, cloud native</b>, etc.</p></div>
       <div><span class="pg-ico">👯</span><h3>Collaborate</h3><p>I’m looking to collaborate on <b>C/C++, Java, Golang, Python, Rust</b>.</p></div>
     </div>
   </div>
 </section>
 
-<section class="pg-section soft">
+<section class="pg-section soft" id="notes">
   <div class="pg-wrap">
     <div class="pg-head"><span class="pg-eyebrow">Notes</span><h2>技术知识库</h2><p>按知识域组织。从任意领域入口开始，沿基础与机制读到项目实现。</p></div>
     <div class="pg-grid">
@@ -69,7 +69,7 @@ Here are some ideas to get you started:
   </div>
 </section>
 
-<section class="pg-contact">
+<section class="pg-contact" id="contact">
   <div class="pg-wrap">
     <div>
       <h2>Let’s talk.</h2>
