@@ -10,14 +10,14 @@ toc_sticky: true
 ---
 
 > 目标：[niko1221/strata](https://github.com/niko1221/strata) 发布版引擎 0.1.55（源码 checkout `c62d5e3a`），模型 Qwen3.8-Flash-Next。
-> 硬件：1× NVIDIA GPU（94 GB 显存，约 835 TFLOPS BF16 dense），40 vCPU，314 GB RAM，驱动 580.126.20。由自动化脚本采集，**未修改任何引擎代码**。
+> 硬件：1× NVIDIA GPU。由自动化脚本采集，**未修改任何引擎代码**。
 
 ## 结论速览
 
 - **Decode 136–172 tok/s（IQ3_XXS），随上下文下降**：短 prompt 172 → 4K 155 → 16K 136，16K 时约 −21%。
 - **Prefill 4.4–5.7K tok/s（IQ3_XXS）、6.2–7.2K tok/s（Q2_0）**：TTFT 4K 为 0.94 s，16K 为 2.9 s，32K 为 5.5 s。
 - **4 路并发只有 202–207 tok/s 总吞吐，仅为单路（171）的 1.2×**，每路降到约 51 tok/s。
-- **GPU 并未跑满**：decode 忙时显存控制器利用率约 15%，功耗约 244 W（峰值 361 W）。
+- **GPU 并未跑满**：decode 忙时显存控制器利用率约 15%。
 - **量化类型对速度的影响超过体积差**：16K 时 Q2_0 decode 170 tok/s，比 IQ3_XXS（136）快 25%，而体积只小约 20%。
 - **质量无差异**：三种量化、五次运行，sanity 套件均为 12/12。
 
@@ -65,8 +65,6 @@ toc_sticky: true
 |---|---:|---:|---:|
 | GPU 利用率 % | 47.2 | 86.3 | 100 |
 | 显存控制器利用率 % | 8.1 | 14.9 | 26 |
-| 功耗 W | 173.8 | 244.0 | 361 |
-| SM 时钟 MHz | 1570.5 | 1784.1 | 1785 |
 
 ## Kernel 级剖析（Nsight Systems）
 
