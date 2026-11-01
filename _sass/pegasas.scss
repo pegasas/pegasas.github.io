@@ -155,7 +155,7 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 }
 
 /* hero visual: acrylic glass stack */
-.pg-visual { position: relative; height: 270px; }
+.pg-visual { position: relative; height: 400px; }
 .pg-float {
   position: absolute; padding: 20px 22px; border-radius: 18px;
   background: linear-gradient(160deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .03));
@@ -233,7 +233,7 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 
 @media (max-width: 900px) {
   .pg-hero { padding: 64px 0 56px; .pg-wrap { grid-template-columns: 1fr; gap: 44px; } }
-  .pg-visual { height: 270px; }
+  .pg-visual { height: 340px; }
   .pg-stats { gap: 24px; }
   .pg-contact .pg-wrap { grid-template-columns: 1fr; }
   .pg-contact .pg-btns { justify-content: flex-start; }
