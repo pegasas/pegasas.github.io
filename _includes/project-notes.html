@@ -1,0 +1,13 @@
+<div class="pg-grid">
+{% for section in site.data.notes_tree %}{% for group in section.groups %}{% if group.slug == 'projects' %}
+  {% for category in group.subs %}{% for project in category.items %}
+  <a class="pg-card" href="{{ project.url | relative_url }}">
+    <small>{{ category.name }}</small>
+    <b>{{ project.title }}</b>
+    <span>{{ project.desc }}</span>
+    {% if project.result %}<strong class="pg-project-result">{{ project.result }}</strong>{% endif %}
+    <em>查看数据与摘要 &rarr;</em>
+  </a>
+  {% endfor %}{% endfor %}
+{% endif %}{% endfor %}{% endfor %}
+</div>

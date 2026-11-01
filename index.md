@@ -41,11 +41,12 @@ Here are some ideas to get you started:
       </nav>
     </aside>
   </div>
+</section>
+
+<section class="pg-section pg-projects" id="projects">
   <div class="pg-wrap">
-    <div class="pg-links">
-      <a href="{{ '/notes/projects/strata-gpu-benchmark/' | relative_url }}"><small>Strata · 项目笔记</small><b>Strata 推理引擎：GPU 基准与 kernel 级剖析</b><span>量化、上下文与并发实测，以及一次内核改动的结果复核</span>{% include pg-icon.html name="arrow" %}</a>
-      <a href="{{ '/notes/topics/projects/' | relative_url }}"><small>Field Notes · 项目笔记</small><b>从实际改动到对照结果</b><span>vLLM 调优、四卡排障、FP8、微调与多模态推理实践</span>{% include pg-icon.html name="arrow" %}</a>
-    </div>
+    <div class="pg-head"><span class="pg-eyebrow">Field Notes</span><h2>项目笔记</h2><p>每篇独立记录实战结果、实验参数和资源用量，完整过程保存在对应的私有笔记中。</p></div>
+    {% include project-notes.html %}
   </div>
 </section>
 
