@@ -25,7 +25,7 @@ Here are some ideas to get you started:
     <div>
       <span class="pg-eyebrow">Hi 👋 Coders</span>
       <h1>Notes on <em>systems, data</em> &amp; AI infra.</h1>
-      <p class="pg-lead">I’m John Huang. 专注 LLM、AI Infra、Agentic AI 与 Physical AI，持续学习分布式系统、数据库与云原生，并把学到的东西整理成一份结构化的技术知识库。</p>
+      <p class="pg-lead">I’m John Huang. 目前专注于 AI Infra、LLM 与 Agentic AI，持续学习分布式系统、数据库与云原生，并把学到的东西整理成一份结构化的技术知识库。</p>
       <div class="pg-btns">
         <a class="pg-btn primary" href="{{ '/notes/' | relative_url }}">浏览 Notes &rarr;</a>
         <a class="pg-btn ghost" href="https://github.com/pegasas">GitHub 主页</a>
@@ -39,7 +39,6 @@ Here are some ideas to get you started:
     <div class="pg-visual" aria-hidden="true">
       <div class="pg-float a"><small>Distributed</small><strong>Raft 共识与日志复制</strong><i style="width:92%"></i><i style="width:64%"></i></div>
       <div class="pg-float b"><small>AI Infra</small><strong>KV Cache 与推理 Serving</strong><i style="width:84%"></i><i style="width:48%"></i></div>
-      <div class="pg-float c"><small>Data Systems</small><strong>LSM-tree 存储引擎</strong><span class="pg-chip">Database</span><span class="pg-chip">Storage</span></div>
     </div>
   </div>
 </section>
