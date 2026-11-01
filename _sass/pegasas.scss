@@ -24,6 +24,9 @@ body { font-family: $pg-font; color: $pg-text; -webkit-font-smoothing: antialias
 ::selection { background: rgba(123, 212, 60, .35); color: #fff; }
 a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } }
 .initial-content, #main { background: transparent; }
+/* home page: let the canvas run edge to edge (theme caps #main at max-width + side padding, which showed as black bars) */
+#main:has(.pg) { max-width: none; width: 100%; padding-left: 0; padding-right: 0; }
+#main:has(.pg) .splash, #main:has(.pg) .page__content { width: 100%; max-width: none; margin: 0; padding: 0; float: none; }
 
 /* ---------- Masthead -------------------------------------------------- */
 .masthead {
