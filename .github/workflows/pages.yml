@@ -1,0 +1,74 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [notes-updated]   # send from pegasas-notes-v2 to refresh the notes mirror
+  schedule:
+    - cron: "17 3 * * *"     # daily safety net
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Serialize deployments: a new run waits for the running one instead of
+# colliding with it ("Deployment request failed due to in progress deployment").
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NOTES_TOKEN: ${{ secrets.NOTES_TOKEN }}
+      # Scope of the notes mirror. Unset = the single example page; "ALL" = everything.
+      NOTES_ONLY: ${{ vars.NOTES_ONLY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Optional: needs repo secret NOTES_TOKEN (read access to pegasas-notes-v2, which is private).
+      # Without it this is skipped and the committed notes/ is published as-is.
+      - name: Checkout notes source
+        if: env.NOTES_TOKEN != ''
+        uses: actions/checkout@v4
+        with:
+          repository: pegasas/pegasas-notes-v2
+          token: ${{ secrets.NOTES_TOKEN }}
+          path: .notes-src
+          sparse-checkout: |
+            knowledge
+            company-ecosystems
+            KNOWLEDGE_ARCHITECTURE.md
+
+      - name: Sync notes and regenerate images
+        if: env.NOTES_TOKEN != ''
+        run: |
+          only="${NOTES_ONLY:-knowledge/algorithm/docs/01-basic/01-amortized-analysis.md}"
+          [ "$only" = "ALL" ] && only=""
+          python3 scripts/sync_notes.py --source .notes-src ${only:+--only "$only"}
+          python3 scripts/gen_profile_images.py --source .notes-src
+          rm -rf .notes-src
+
+      - uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
