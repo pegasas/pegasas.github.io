@@ -115,7 +115,6 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
-      url: mailto:yangqingping17s@ict.ac.cn
     - label: "CV"
       icon: "fas fa-fw fa-file-pdf"
       # url: "https://csrhddlam.github.io/CV_HuiyuWang.pdf"

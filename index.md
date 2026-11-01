@@ -77,7 +77,8 @@ Here are some ideas to get you started:
       <p>😄 Pronouns: He</p>
     </div>
     <div class="pg-btns">
-      <a class="pg-btn primary" href="mailto:yangqingping17s@ict.ac.cn">Email me</a>
+      <a class="pg-btn primary" href="{{ '/notes/' | relative_url }}">Browse Notes</a>
+      <a class="pg-btn ghost" href="https://github.com/pegasas">GitHub</a>
     </div>
   </div>
 </section>
