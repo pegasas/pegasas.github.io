@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{%- assign g = nil -%}{%- assign sec = nil -%}{%- assign all = "" | split: "" -%}
+{%- for s in site.data.notes_tree -%}{%- for x in s.groups -%}
+  {%- assign all = all | push: x -%}
+  {%- if x.slug == page.group -%}{%- assign g = x -%}{%- assign sec = s -%}{%- assign idx = all.size | minus: 1 -%}{%- endif -%}
+{%- endfor -%}{%- endfor -%}
+{%- assign prev_i = idx | minus: 1 -%}{%- assign next_i = idx | plus: 1 -%}
+<div id="main" role="main">
+<div class="pg">
+<section class="pg-section pg-topic">
+  <div class="pg-wrap">
+    <nav class="pg-crumbs"><a href="{{ '/' | relative_url }}">Home</a><span>/</span><a href="{{ '/notes/' | relative_url }}">Notes</a><span>/</span><a href="{{ '/notes/' | relative_url }}#notes">{{ sec.section }}</a><span>/</span><b>{{ g.title }}</b></nav>
+    <div class="pg-head"><span class="pg-eyebrow">{{ sec.eyebrow }}</span><h2>{{ g.icon }} {{ g.title }}</h2><p>{{ g.desc }}</p></div>
+    <div class="pg-subnav">{% for sub in g.subs %}<a href="#s{{ forloop.index }}">{{ sub.name }}<em>{{ sub.items.size }}</em></a>{% endfor %}</div>
+    {% for sub in g.subs %}
+    <div class="pg-sub" id="s{{ forloop.index }}">
+      <h3>{{ sub.name }}</h3>
+      {% if sub.items.size == 0 %}
+      <p class="pg-empty">还没有内容，待补充。</p>
+      {% else %}
+      <div class="pg-grid">
+        {% for it in sub.items %}{% include notes-href.html item=it %}
+        <a class="pg-card" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}><b>{{ it.title }}</b><span>{{ it.desc }}</span><em>{% if external %}GitHub ↗{% else %}阅读 &rarr;{% endif %}</em></a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="pg-pager">
+      {% if idx > 0 %}{% assign pg = all[prev_i] %}<a href="{{ '/notes/topics/' | append: pg.slug | append: '/' | relative_url }}"><small>&larr; 上一组</small><b>{{ pg.icon }} {{ pg.title }}</b></a>{% else %}<span></span>{% endif %}
+      {% if next_i < all.size %}{% assign ng = all[next_i] %}<a class="next" href="{{ '/notes/topics/' | append: ng.slug | append: '/' | relative_url }}"><small>下一组 &rarr;</small><b>{{ ng.icon }} {{ ng.title }}</b></a>{% endif %}
+    </div>
+  </div>
+</section>
+</div>
+</div>

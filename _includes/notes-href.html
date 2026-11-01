@@ -1,0 +1,16 @@
+{%- comment -%} Sets `href` and `external` for include.item (url > synced site page > GitHub). {%- endcomment -%}
+{%- assign it = include.item -%}
+{%- assign external = false -%}
+{%- if it.url -%}
+  {%- assign href = it.url | relative_url -%}
+{%- else -%}
+  {%- assign p = it.path -%}
+  {%- if p contains ".md" -%}
+    {%- assign stem = p | remove: ".md" -%}{%- capture site_url -%}/notes/{{ stem }}/{%- endcapture -%}{%- assign kind = "blob" -%}
+  {%- else -%}
+    {%- capture site_url -%}/notes/{{ p }}/{%- endcapture -%}{%- assign kind = "tree" -%}
+  {%- endif -%}
+  {%- assign synced = site.pages | where: "url", site_url | first -%}
+  {%- if synced -%}{%- assign href = site_url | relative_url -%}
+  {%- else -%}{%- capture href -%}https://github.com/pegasas/pegasas-notes-v2/{{ kind }}/main/knowledge/{{ p }}{%- endcapture -%}{%- assign external = true -%}{%- endif -%}
+{%- endif -%}

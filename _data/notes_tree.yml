@@ -1,0 +1,273 @@
+# Knowledge tree: section -> group -> subcategory -> item.
+# Home page shows sections and group cards; each group has its own page at /notes/<slug>/
+# (one stub file per group under notes/_groups is not needed: pages live in notes/<slug>.md).
+# Item fields:
+#   path: folder or .md file under knowledge/ in pegasas-notes-v2. Links to the site copy
+#         (/notes/<path>/) when it has been synced, otherwise to GitHub.
+#   url:  direct site link (overrides path).
+- section: AI
+  eyebrow: "A · AI"
+  desc: "当前专注的方向：模型、Agent 与支撑它们的基础设施。"
+  groups:
+    - slug: ai-models
+      icon: "🧠"
+      title: AI 与模型
+      desc: 模型机制、训练方法、评测与 Physical AI
+      subs:
+        - name: 基础与 LLM
+          items:
+            - {title: "学习基础", path: "ai-models/foundations", desc: "学习目标、优化与泛化"}
+            - {title: "LLM", path: "ai-models/llm", desc: "大语言模型的机制与能力"}
+            - {title: "工程实践", path: "ai-models/engineering", desc: "训练、调优与上线"}
+        - name: 模型架构
+          items:
+            - {title: "架构基础", path: "ai-models/model-architectures/basic", desc: "Transformer 及其变体"}
+            - {title: "模型逐个拆解", path: "ai-models/model-architectures/models", desc: "主流开源模型结构"}
+            - {title: "演进路线", path: "ai-models/model-architectures/evolution-walkthrough", desc: "架构如何一步步演进"}
+            - {title: "专项方向", path: "ai-models/specializations", desc: "多模态、检索等专项"}
+        - name: Physical AI
+          items:
+            - {title: "基础", path: "physical-ai/basic", desc: "感知、动作与世界模型"}
+            - {title: "模型", path: "physical-ai/models", desc: "VLA 与机器人基础模型"}
+            - {title: "主流程", path: "physical-ai/main-flows", desc: "仿真、数据与控制闭环"}
+            - {title: "评测与案例", path: "physical-ai/evaluation", desc: "闭环评测方法"}
+    - slug: agent
+      icon: "🛠️"
+      title: Agent
+      desc: 工具、状态、记忆、工作流、评估与应用
+      subs:
+        - name: 原理
+          items:
+            - {title: "第一性原理", path: "agent/first-principles", desc: "Agent 的本质与边界"}
+            - {title: "深入专题", path: "agent/deep-dives", desc: "记忆、规划、工具调用"}
+            - {title: "实现", path: "agent/implementation", desc: "从零实现 Agent"}
+        - name: 框架与协议
+          items:
+            - {title: "LangChain / LangGraph", path: "agent/ecosystems/langgraph", desc: "图式工作流编排"}
+            - {title: "MCP", path: "agent/ecosystems/modelcontextprotocol", desc: "模型上下文协议"}
+            - {title: "A2A", path: "agent/ecosystems/a2a", desc: "Agent 间通信协议"}
+            - {title: "AutoGen / CrewAI", path: "agent/ecosystems/autogen", desc: "多 Agent 协作框架"}
+            - {title: "Dify / n8n", path: "agent/ecosystems/dify", desc: "低代码 Agent 平台"}
+            - {title: "全部生态", path: "agent/ecosystems", desc: "30+ 框架源码分析索引"}
+        - name: 评估与案例
+          items:
+            - {title: "SWE-bench / τ²-bench", path: "agent/ecosystems/swe-bench", desc: "Agent 基准"}
+            - {title: "Langfuse / Phoenix", path: "agent/ecosystems/langfuse", desc: "可观测与评估"}
+            - {title: "案例研究", path: "agent/case-studies", desc: "真实产品拆解"}
+    - slug: ai-infra
+      icon: "🏗️"
+      title: AI Infra
+      desc: 算子、训练与推理框架、Serving、集群与 NVIDIA
+      subs:
+        - name: 计算与编译
+          items:
+            - {title: "工作负载基础", path: "ai-infra/knowledge/01-foundations-workloads", desc: "训练与推理的负载特征"}
+            - {title: "GPU Kernels", path: "ai-infra/knowledge/02-gpu-kernels", desc: "CUDA、Triton 与算子优化"}
+            - {title: "框架与编译器", path: "ai-infra/knowledge/03-frameworks-compilers", desc: "PyTorch、XLA、TVM"}
+            - {title: "数值与量化", path: "ai-infra/knowledge/07-numerics-quantization", desc: "FP8、INT4 与量化方法"}
+        - name: 分布式训练（GPU 计算框架）
+          items:
+            - {title: "并行策略", path: "ai-infra/knowledge/04-distributed-training/parallelism", desc: "DP / TP / PP / EP"}
+            - {title: "MoE 训练", path: "ai-infra/knowledge/04-distributed-training/moe", desc: "专家并行与负载均衡"}
+            - {title: "训练优化", path: "ai-infra/knowledge/04-distributed-training/optimization", desc: "ZeRO、重计算、通信重叠"}
+        - name: 推理与 Serving
+          items:
+            - {title: "推理 Serving", path: "ai-infra/knowledge/06-inference-serving", desc: "KV Cache、批处理与调度"}
+            - {title: "Strata on H100 NVL", url: "/notes/projects/strata-h100-benchmark/", desc: "本地推理引擎实测"}
+        - name: 集群与硬件
+          items:
+            - {title: "网络与存储", path: "ai-infra/knowledge/05-network-storage", desc: "NVLink、IB、RDMA 与存储"}
+            - {title: "集群平台", path: "ai-infra/knowledge/08-cluster-platform", desc: "调度、资源与平台化"}
+            - {title: "可靠性与性能", path: "ai-infra/knowledge/10-performance-capacity", desc: "容量规划与性能分析"}
+            - {title: "NVIDIA", path: "accelerators/vendors/nvidia", desc: "GPU、CUDA、互联与产品"}
+    - slug: projects
+      icon: "🔬"
+      title: 项目笔记
+      desc: 实测与项目复盘
+      subs:
+        - name: 实测
+          items:
+            - {title: "Strata on H100 NVL", url: "/notes/projects/strata-h100-benchmark/", desc: "decode / prefill / 并发实测与优化方向"}
+
+- section: 计算机基础
+  eyebrow: "B · Foundations"
+  desc: "AI 系统的底座：分布式、计算、存储、系统与语言。"
+  groups:
+    - slug: distributed
+      icon: "🕸️"
+      title: 分布式
+      desc: 共识、一致性、事务、复制与时钟
+      subs:
+        - name: 理论
+          items:
+            - {title: "基础", path: "distributed/00-fundamentals.md", desc: "故障模型与基本不可能性"}
+            - {title: "共识", path: "distributed/01-consensus.md", desc: "Paxos、Raft"}
+            - {title: "一致性模型", path: "distributed/02-consistency-models.md", desc: "线性一致到最终一致"}
+            - {title: "分布式事务", path: "distributed/03-distributed-transactions.md", desc: "2PC、Percolator、Saga"}
+            - {title: "复制与分区", path: "distributed/04-replication-partitioning.md", desc: "主从、多主、无主"}
+            - {title: "时钟与顺序", path: "distributed/05-clock-ordering.md", desc: "Lamport、HLC、TrueTime"}
+        - name: 进阶机制
+          items:
+            - {title: "故障检测与成员", path: "distributed/21-failure-detection-membership.md", desc: "心跳、Gossip、SWIM"}
+            - {title: "快照与广播", path: "distributed/22-distributed-snapshot-broadcast.md", desc: "Chandy-Lamport"}
+            - {title: "CRDT 与反熵", path: "distributed/23-crdt-anti-entropy.md", desc: "无冲突复制"}
+            - {title: "形式化验证与测试", path: "distributed/24-formal-verification-testing.md", desc: "TLA+、Jepsen"}
+        - name: 协调与共识系统
+          items:
+            - {title: "etcd", path: "distributed/ecosystems/etcd", desc: "Raft 实现与控制面"}
+            - {title: "协调与控制面", path: "distributed/11-coordination-control-plane.md", desc: "锁、选主、配置"}
+            - {title: "区块链", path: "distributed/ecosystems/blockchain", desc: "Ethereum、Solana"}
+    - slug: compute
+      icon: "⚙️"
+      title: 计算框架
+      desc: 批处理、流处理与 SQL 引擎
+      subs:
+        - name: 批处理
+          items:
+            - {title: "Hadoop", path: "distributed/ecosystems/hadoop", desc: "HDFS、MapReduce、YARN"}
+            - {title: "Spark", path: "distributed/ecosystems/spark", desc: "RDD、DAG 调度、Spark SQL"}
+            - {title: "Hive", path: "distributed/ecosystems/hive", desc: "数仓与 SQL on Hadoop"}
+        - name: 流处理
+          items:
+            - {title: "Flink", path: "distributed/ecosystems/flink", desc: "状态、检查点与 Exactly-once"}
+        - name: GPU 计算
+          items:
+            - {title: "分布式训练", path: "ai-infra/knowledge/04-distributed-training", desc: "见 AI Infra 分组"}
+    - slug: storage
+      icon: "🗄️"
+      title: 存储与数据库
+      desc: SQL、NoSQL、NewSQL、搜索、湖仓与消息
+      subs:
+        - name: SQL
+          items:
+            - {title: "MySQL", path: "data-systems/ecosystems/mysql", desc: "InnoDB、MVCC、复制"}
+            - {title: "PostgreSQL", path: "data-systems/ecosystems/postgresql", desc: "堆表、WAL、扩展"}
+            - {title: "SQLite", path: "data-systems/ecosystems/sqlite", desc: "嵌入式 B-tree 数据库"}
+        - name: NoSQL
+          items:
+            - {title: "Redis", path: "data-systems/ecosystems/redis", desc: "内存 KV 与数据结构"}
+            - {title: "MongoDB", path: "data-systems/ecosystems/mongodb", desc: "文档数据库"}
+            - {title: "Cassandra", path: "data-systems/ecosystems/cassandra", desc: "宽列、无主复制"}
+            - {title: "HBase", path: "data-systems/ecosystems/hbase", desc: "LSM 宽列存储"}
+            - {title: "LevelDB", path: "data-systems/ecosystems/leveldb", desc: "LSM-tree 存储引擎"}
+        - name: NewSQL
+          items:
+            - {title: "TiKV", path: "data-systems/ecosystems/tikv", desc: "Raft + Percolator 分布式 KV"}
+            - {title: "SurrealDB", path: "data-systems/ecosystems/surrealdb", desc: "多模型数据库"}
+            - {title: "NewSQL 总览", path: "distributed/07-newsql-distributed-database.md", desc: "Spanner、CockroachDB 设计"}
+        - name: 搜索
+          items:
+            - {title: "Lucene", path: "data-systems/ecosystems/lucene", desc: "倒排索引"}
+            - {title: "Elasticsearch", path: "data-systems/ecosystems/elasticsearch", desc: "分布式搜索"}
+            - {title: "Meilisearch", path: "data-systems/ecosystems/meilisearch", desc: "轻量搜索引擎"}
+        - name: 湖仓与分析
+          items:
+            - {title: "Iceberg", path: "data-systems/ecosystems/iceberg", desc: "表格式与快照"}
+            - {title: "Hudi", path: "data-systems/ecosystems/hudi", desc: "增量湖仓"}
+            - {title: "DataFusion", path: "data-systems/ecosystems/datafusion", desc: "Arrow 查询引擎"}
+            - {title: "Polars", path: "data-systems/ecosystems/polars", desc: "列式 DataFrame"}
+        - name: 消息与流
+          items:
+            - {title: "Kafka", path: "distributed/ecosystems/kafka", desc: "分区日志与副本"}
+            - {title: "Pulsar", path: "distributed/ecosystems/pulsar", desc: "存算分离消息系统"}
+            - {title: "RocketMQ", path: "distributed/ecosystems/rocketmq", desc: "事务消息与顺序消息"}
+    - slug: cloud-native
+      icon: "☁️"
+      title: 云原生
+      desc: 容器、编排、服务与可观测性
+      subs:
+        - name: 容器与编排
+          items:
+            - {title: "Kubernetes", path: "cloud-native/ecosystems/kubernetes", desc: "控制循环与调度"}
+            - {title: "client-go", path: "cloud-native/ecosystems/kubernetes-client-go", desc: "Informer 与控制器"}
+            - {title: "Docker", path: "cloud-native/ecosystems/docker", desc: "镜像与运行时"}
+            - {title: "containerd", path: "cloud-native/ecosystems/containerd", desc: "CRI 运行时"}
+            - {title: "KEDA", path: "cloud-native/ecosystems/keda", desc: "事件驱动扩缩容"}
+        - name: 服务与网络
+          items:
+            - {title: "CoreDNS", path: "cloud-native/ecosystems/coredns", desc: "集群 DNS"}
+            - {title: "Nginx", path: "cloud-native/ecosystems/nginx", desc: "反向代理与网关"}
+            - {title: "Spring Cloud", path: "cloud-native/ecosystems/spring-cloud", desc: "微服务框架"}
+        - name: 可观测与交付
+          items:
+            - {title: "Prometheus", path: "cloud-native/ecosystems/prometheus", desc: "指标与 TSDB"}
+            - {title: "Grafana", path: "cloud-native/ecosystems/grafana", desc: "可视化"}
+            - {title: "OpenTelemetry", path: "cloud-native/ecosystems/opentelemetry", desc: "Trace、Metric、Log"}
+            - {title: "Argo", path: "cloud-native/ecosystems/argo", desc: "GitOps 与工作流"}
+    - slug: os
+      icon: "🐧"
+      title: 操作系统
+      desc: 内核、进程、内存、文件与隔离
+      subs:
+        - name: Linux
+          items:
+            - {title: "Linux", path: "os/linux", desc: "内核、进程、内存、文件、网络与隔离"}
+    - slug: network
+      icon: "🌐"
+      title: 计算机网络
+      desc: TCP、QUIC、DNS、IPv6 与 TLS
+      subs:
+        - name: 协议
+          items:
+            - {title: "网络协议", path: "network", desc: "TCP / QUIC / DNS / IPv6 / TLS 机制与示例"}
+    - slug: web
+      icon: "🖥️"
+      title: 浏览器、前端与移动端
+      desc: 浏览器原理、前端框架与移动端
+      subs:
+        - name: 浏览器
+          items:
+            - {title: "浏览器", path: "web/browser", desc: "渲染、网络与安全模型"}
+        - name: 前端
+          items:
+            - {title: "前端", path: "web/frontend", desc: "Web 语言、框架与交互"}
+        - name: 移动端
+          items:
+            - {title: "Android", path: "os/android", desc: "Android 系统"}
+    - slug: languages
+      icon: "💻"
+      title: 编程语言
+      desc: C/C++、Java、Go、Python、Rust
+      subs:
+        - name: 系统语言
+          items:
+            - {title: "C/C++", path: "language/cpp", desc: "类型、内存、并发与工具链"}
+            - {title: "Rust", path: "language/rust", desc: "所有权、类型与异步"}
+            - {title: "Go", path: "language/go", desc: "运行时与并发"}
+        - name: 托管与脚本语言
+          items:
+            - {title: "Java / JVM", path: "language/java", desc: "JVM、并发与生态"}
+            - {title: "Python", path: "language/python", desc: "语言、运行时与扩展"}
+    - slug: software-engineering
+      icon: "🧱"
+      title: 软件工程
+      desc: DDD、DDIA、设计模式与 DevOps
+      subs:
+        - name: 设计
+          items:
+            - {title: "DDD", path: "software-engineering/ddd", desc: "领域驱动设计与 Outbox"}
+            - {title: "DDIA", path: "software-engineering/ddia", desc: "数据密集型应用设计"}
+            - {title: "设计模式", path: "software-engineering/design-pattern", desc: "熔断、网关等"}
+        - name: 交付
+          items:
+            - {title: "DevOps", path: "software-engineering/devops", desc: "金丝雀与发布闸门"}
+    - slug: algorithm
+      icon: "🧮"
+      title: 算法
+      desc: ACM 竞赛、工业界与学术界算法
+      subs:
+        - name: ACM / 竞赛
+          items:
+            - {title: "基础", path: "algorithm/docs/01-basic", desc: "复杂度、摊还分析、排序"}
+            - {title: "搜索", path: "algorithm/docs/02-search", desc: "DFS、BFS、剪枝"}
+            - {title: "动态规划", path: "algorithm/docs/03-dynamic-programming", desc: "状态设计与优化"}
+            - {title: "字符串", path: "algorithm/docs/04-string", desc: "KMP、AC 自动机、后缀结构"}
+            - {title: "数学", path: "algorithm/docs/05-math", desc: "数论、组合、多项式"}
+            - {title: "数据结构", path: "algorithm/docs/06-data-structure", desc: "线段树、平衡树"}
+            - {title: "图论", path: "algorithm/docs/07-graph", desc: "最短路、流、匹配"}
+            - {title: "计算几何", path: "algorithm/docs/08-geometry", desc: "凸包、扫描线"}
+        - name: 工业界
+          items:
+            - {title: "搜索广告推荐", path: "applied-algorithms/search-ads-recommendation", desc: "召回、排序与竞价"}
+        - name: 学术界
+          items: []

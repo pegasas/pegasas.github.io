@@ -224,9 +224,9 @@ class Sync:
         else:  # pilot mode: list the synced pages directly
             items = "\n".join(f"- [{t}]({self.baseurl}{u})" for u, t in sorted(self.titles.items()))
         self.outputs[key] = (
-            "---\nlayout: single\nclasses: wide\ntitle: \"Notes\"\npermalink: /notes/\n"
+            "---\nlayout: single\nclasses: wide\ntitle: \"已同步页面\"\npermalink: /notes/all/\n"
             "author_profile: false\n---\n\n"
-            "技术知识库，按知识域组织。\n\n" + items + "\n"
+            "从 pegasas-notes-v2 同步到本站的页面。按分类浏览见 [Notes]({{ '/notes/' | relative_url }})。\n\n" + items + "\n"
         ).encode()
 
     # ---- apply ----------------------------------------------------------

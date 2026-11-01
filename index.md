@@ -33,7 +33,7 @@ Here are some ideas to get you started:
       <div class="pg-links">
         <a href="{{ '/notes/projects/strata-h100-benchmark/' | relative_url }}"><small>Latest · 项目笔记</small><b>Strata on H100 NVL：基准与优化方向</b><span>decode / prefill / 并发实测，以及 8 个按优先级排序的改进点 &rarr;</span></a>
         <a href="{{ '/notes/algorithm/docs/01-basic/01-amortized-analysis/' | relative_url }}"><small>Algorithm · 基础</small><b>Amortized Analysis</b><span>聚合、核算与势能三种摊还分析方法 &rarr;</span></a>
-        <a href="{{ '/notes/' | relative_url }}"><small>Index · 全部笔记</small><b>按知识域浏览</b><span>16 个知识域，从基础机制读到项目实现 &rarr;</span></a>
+        <a href="{{ '/notes/' | relative_url }}"><small>Index · 全部笔记</small><b>按知识域浏览</b><span>AI 与计算机基础两段、14 个分组，多级跳转到每篇笔记 &rarr;</span></a>
       </div>
     </div>
     <div class="pg-visual" aria-hidden="true">
@@ -44,6 +44,13 @@ Here are some ideas to get you started:
   </div>
 </section>
 
+<section class="pg-section soft" id="notes">
+  <div class="pg-wrap">
+    <div class="pg-head"><span class="pg-eyebrow">Notes</span><h2>技术知识库</h2><p>分两段组织：AI 是当前方向，计算机基础是底座。点分组进入子类，点子类标签直达对应位置。</p></div>
+{% include notes-overview.html %}
+  </div>
+</section>
+
 <section class="pg-section" id="about">
   <div class="pg-wrap">
     <div class="pg-head"><span class="pg-eyebrow">About</span><h2>我在做什么</h2></div>
@@ -51,20 +58,6 @@ Here are some ideas to get you started:
       <div><span class="pg-ico">🔭</span><h3>Working on</h3><p>I’m currently working on <b>LLM / AI Infra / Agentic AI / Physical AI / AI Factory</b>.</p></div>
       <div><span class="pg-ico">🌱</span><h3>Learning</h3><p>I’m currently learning <b>LLM, AI Infra, distributed system, db, cloud native</b>, etc.</p></div>
       <div><span class="pg-ico">👯</span><h3>Collaborate</h3><p>I’m looking to collaborate on <b>C/C++, Java, Golang, Python, Rust</b>.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="pg-section soft" id="notes">
-  <div class="pg-wrap">
-    <div class="pg-head"><span class="pg-eyebrow">Notes</span><h2>技术知识库</h2><p>按知识域组织。从任意领域入口开始，沿基础与机制读到项目实现。</p></div>
-    <div class="pg-grid">
-{% for d in site.data.notes_domains %}
-{% capture site_url %}/notes/{{ d.path }}/{% endcapture %}
-{% assign synced = site.pages | where: "url", site_url | first %}
-{% if synced %}{% assign href = site_url | relative_url %}{% else %}{% capture href %}https://github.com/pegasas/pegasas-notes-v2/tree/main/knowledge/{{ d.path }}{% endcapture %}{% endif %}
-<a class="pg-card" href="{{ href }}"><span class="pg-ico">{{ d.icon }}</span><b>{{ d.title }}</b><span>{{ d.desc }}</span><em>进入 &rarr;</em></a>
-{% endfor %}
     </div>
   </div>
 </section>
