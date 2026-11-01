@@ -120,14 +120,15 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 .pg-hero {
   position: relative; overflow: hidden; padding: 110px 0 96px;
   background:
-    radial-gradient(620px 420px at 12% 0%, rgba(123, 212, 60, .28), transparent 65%),
-    radial-gradient(700px 480px at 92% 18%, rgba(255, 122, 31, .26), transparent 65%),
-    radial-gradient(800px 500px at 60% 120%, rgba(61, 155, 255, .30), transparent 65%),
+    radial-gradient(520px 380px at 76% 14%, rgba(123, 212, 60, .26), transparent 65%),
+    radial-gradient(520px 380px at 90% 52%, rgba(255, 122, 31, .24), transparent 65%),
+    radial-gradient(560px 400px at 70% 92%, rgba(61, 155, 255, .28), transparent 65%),
+    radial-gradient(620px 420px at 8% 0%, rgba(123, 212, 60, .14), transparent 65%),
     $pg-bg;
   &::before { content: ""; position: absolute; inset: 0; pointer-events: none;
     background-image: linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px);
     background-size: 48px 48px;
-    -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%); mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%); }
+    -webkit-mask-image: radial-gradient(ellipse at 65% 45%, #000 25%, transparent 80%); mask-image: radial-gradient(ellipse at 65% 45%, #000 25%, transparent 80%); }
   &::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
     background: linear-gradient(90deg, transparent, $pg-green, $pg-blue, $pg-orange, transparent); opacity: .7; }
   .pg-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
@@ -155,19 +156,23 @@ a { color: $pg-link; &:hover { color: #a9d4ff; } &:visited { color: $pg-link; } 
 }
 
 /* hero visual: acrylic glass stack */
-.pg-visual { position: relative; height: 400px; }
+.pg-visual { position: relative; height: 400px;
+  /* connector rail tying the three cards together, same palette as the backdrop glows */
+  &::before { content: ""; position: absolute; left: 50%; top: 8%; bottom: 8%; width: 2px; transform: translateX(-50%); border-radius: 2px;
+    background: linear-gradient(180deg, $pg-green, $pg-orange, $pg-blue); opacity: .55; box-shadow: 0 0 24px 2px rgba(61, 155, 255, .35); }
+}
 .pg-float {
   position: absolute; padding: 20px 22px; border-radius: 18px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .03));
-  border: 1px solid rgba(255, 255, 255, .14);
+  background: linear-gradient(160deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(255, 255, 255, .12);
   backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7);
   small { display: block; font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: .5em; }
   strong { display: block; font-size: 1.05rem; color: #fff; line-height: 1.3; }
   i { display: block; height: 7px; border-radius: 4px; background: rgba(255, 255, 255, .14); margin-top: 11px; }
-  &.a { top: 0; left: 2%; width: 66%; z-index: 2; border-top: 3px solid $pg-green; small { color: $pg-green; } }
-  &.b { top: 132px; right: 0; width: 64%; z-index: 3; border-top: 3px solid $pg-orange; small { color: $pg-orange; } }
-  &.c { bottom: 0; left: 10%; width: 60%; z-index: 4; border-top: 3px solid $pg-blue; small { color: $pg-blue; } }
+  &.a { top: 0; left: 2%; width: 66%; z-index: 2; border-top: 3px solid $pg-green; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 50px -12px rgba(123,212,60,.45); small { color: $pg-green; } }
+  &.b { top: 132px; right: 0; width: 64%; z-index: 3; border-top: 3px solid $pg-orange; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 50px -12px rgba(255,122,31,.45); small { color: $pg-orange; } }
+  &.c { bottom: 0; left: 10%; width: 60%; z-index: 4; border-top: 3px solid $pg-blue; box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 50px -12px rgba(61,155,255,.45); small { color: $pg-blue; } }
 }
 .pg-chip { display: inline-block; font-size: .7rem; font-weight: 700; color: #cfe6ff; background: rgba(61, 155, 255, .16); border: 1px solid rgba(61, 155, 255, .3); padding: .22em .7em; border-radius: 999px; margin: .7em .4em 0 0; }
 
