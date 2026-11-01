@@ -30,6 +30,15 @@ Here are some ideas to get you started:
 - 📫 How to reach me: Email me or try to figure out my WeChat number.
 - 😄 Pronouns: He
 
+#### 📚 Notes
+
+技术知识库（同步自 [pegasas-notes-v2](https://github.com/pegasas/pegasas-notes-v2)）—— [进入 Notes &rarr;]({{ '/notes/' | relative_url }})
+
+{% assign synced = site.pages | where_exp: "p", "p.source_path" | sort: "title" %}
+{% for p in synced limit: 6 %}
+- [{{ p.title }}]({{ p.url | relative_url }})
+{% endfor %}
+
 #### GitHub Analytics
 
 <div align="center">
